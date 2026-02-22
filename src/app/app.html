@@ -1,0 +1,85 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-sm border-0">
+        <div class="card-header bg-primary text-white p-4">
+          <h2 class="mb-0 h4">
+            <i class="bi bi-ui-checks me-2"></i>
+            ON Universal Input Component
+          </h2>
+          <p class="mb-0 opacity-75 small">Demo of all configurable input types</p>
+        </div>
+
+        <div class="card-body p-4">
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="row">
+              <div class="col-md-6">
+                <on-dynamic-input formControlName="fullName" label="Full Name" placeholder="John Doe"
+                  [error]="getErrorMessage('fullName')" hint="Enter your first and last name"></on-dynamic-input>
+              </div>
+
+              <div class="col-md-6">
+                <on-dynamic-input formControlName="email" type="email" label="Email Address"
+                  placeholder="john.doe@example.com" [error]="getErrorMessage('email')"></on-dynamic-input>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <on-dynamic-input formControlName="password" type="password" label="Password" placeholder="••••••••"
+                  [error]="getErrorMessage('password')"></on-dynamic-input>
+              </div>
+
+              <div class="col-md-6">
+                <on-dynamic-input formControlName="age" type="number" label="Age" placeholder="25"
+                  [error]="getErrorMessage('age')"></on-dynamic-input>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <on-dynamic-input formControlName="country" type="select" label="Country of residence"
+                  placeholder="Select a country" [options]="countryOptions"
+                  [error]="getErrorMessage('country')"></on-dynamic-input>
+              </div>
+              <div class="col-md-6">
+                <on-dynamic-input formControlName="birthDate" type="date" label="Date of birth"></on-dynamic-input>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <span class="form-label d-block">Gender</span>
+              <on-dynamic-input formControlName="gender" type="radio" [options]="genderOptions"></on-dynamic-input>
+            </div>
+
+            <on-dynamic-input formControlName="bio" type="textarea" label="Biography"
+              placeholder="Tell us about yourself..."></on-dynamic-input>
+
+            <on-dynamic-input formControlName="newsletter" type="checkbox"
+              label="Subscribe to the newsletter"></on-dynamic-input>
+
+            <div class="d-flex gap-2 mt-4">
+              <button type="submit" class="btn btn-primary px-4">
+                <i class="bi bi-send me-2"></i>Submit
+              </button>
+              <button type="button" class="btn btn-outline-secondary px-4" (click)="reset()">
+                <i class="bi bi-arrow-counterclockwise me-2"></i>Reset
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      @if (submittedData()) {
+      <div class="card mt-4 border-success shadow-sm">
+        <div class="card-header bg-success text-white">
+          <h3 class="h6 mb-0">Data submitted successfully</h3>
+        </div>
+        <div class="card-body">
+          <pre class="bg-light p-3 rounded mb-0"><code>{{ submittedData() | json }}</code></pre>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</div>

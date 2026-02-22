@@ -1,0 +1,7 @@
+:host {
+  display: block;
+}
+
+.form-check-input.is-invalid~.invalid-feedback {
+  display: block;
+}
