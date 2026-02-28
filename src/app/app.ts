@@ -2,11 +2,12 @@ import { ChangeDetectionStrategy, Component, signal, inject } from '@angular/cor
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { DynamicInput, SelectOption } from './shared/components/dynamic-input/dynamic-input';
+import { FileUploadComponent } from './shared/components/file-upload/file-upload';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-root',
-  imports: [CommonModule, ReactiveFormsModule, DynamicInput],
+  imports: [CommonModule, ReactiveFormsModule, DynamicInput, FileUploadComponent],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
@@ -43,7 +44,8 @@ export class App {
       country: ['', Validators.required],
       bio: [''],
       newsletter: [false],
-      birthDate: ['']
+      birthDate: [''],
+      documents: [[]]
     });
   }
 
@@ -67,7 +69,7 @@ export class App {
   }
 
   reset() {
-    this.form.reset({ gender: 'M', newsletter: false });
+    this.form.reset({ gender: 'M', newsletter: false, documents: [] });
     this.submittedData.set(null);
   }
 }
