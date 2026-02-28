@@ -10,6 +10,8 @@ A small, reusable Angular input component that supports many input types (text, 
 
 See the component screenshot above. To include the exact image shown here, copy the attached screenshot into your project at `docs/screenshot.png` (create the `docs/` folder if it doesn't exist), or update the path below to point to your preferred image location.
 
+<img width="1146" height="1490" alt="screenshot" src="https://github.com/user-attachments/assets/41335523-da1a-432a-bad2-96a278d18487" />
+
 ## How to import the input into a new Angular project
 
 There are two simple ways to use `DynamicInput` in a new project: copy the component files into your project, or import it from a library if you package this repo as one.
